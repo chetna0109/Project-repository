@@ -52,7 +52,7 @@ jobs:
     
     steps:
       - name: checkout
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Docker build
         working-directory: frontend
