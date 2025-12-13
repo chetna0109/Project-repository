@@ -49,11 +49,11 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+    
     steps:
-
       - name: checkout
         run: actions/checkout@v4
-        
+
       - name: Docker build
         working-diectory: frontend
         runs: docker build .
