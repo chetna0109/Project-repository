@@ -27,8 +27,8 @@ jobs:
 
       - name: node lint
         working-directory: frontend
-        #run: npx eslint . --fix
-        run: npm run lint
+        run: npx eslint . --fix
+        #run: npm run lint
         continue-on-error: false
 
   test:
