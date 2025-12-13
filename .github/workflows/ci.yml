@@ -28,6 +28,7 @@ jobs:
       - name: node lint
         working-directory: frontend
         run: npx eslint . --fix
+        continue-on-error: false
 
   test:
     name: test
