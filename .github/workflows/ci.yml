@@ -1,0 +1,27 @@
+name: Movie
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - frontend/**
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: lint
+    runs_on: ubuntu_latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+    
+      - name: setup nodejs
+        run: npm ci
+
+      - name: node lint
+        run: npm run lint
+
+  
+
+
