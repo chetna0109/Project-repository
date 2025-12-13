@@ -1,0 +1,30 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      frontend/**
+  workflow_dispatch
+
+jobs:
+
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+
+        uses: action/checkout@v4
+
+      - name: setup
+        working-directory: frontend
+        uses: npm install
+
+      - name: node test
+        working-directory: frontend
+        uses: npm test
+
+     
