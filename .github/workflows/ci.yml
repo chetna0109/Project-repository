@@ -29,6 +29,14 @@ jobs:
         working-directory: frontend
         run: npx eslint . --fix
 
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: test1
+        working-directory: frontend
+        run: npm test
+
 
   
 
