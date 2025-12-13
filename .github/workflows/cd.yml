@@ -25,6 +25,6 @@ jobs:
 
       - name: node test
         working-directory: frontend
-        uses: npm test
+        run: npm test
 
      
