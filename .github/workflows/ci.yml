@@ -24,6 +24,11 @@ jobs:
         working-directory: frontend
         run: npm ci
 
+      - name: ftft
+        working-directory: frontend
+        run: npx prettier --write .
+
+
       - name: node lint
         working-directory: frontend
         run: npm run lint
