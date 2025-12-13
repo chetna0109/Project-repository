@@ -17,12 +17,15 @@ jobs:
         uses: actions/checkout@v4
     
       - name: setup nodejs
+        working-directory: frontend
         run: npm install
 
       - name: setup
+        working-directory: frontend
         run: npm ci
 
       - name: node lint
+        working-directory: frontend
         run: npm run lint
 
   
