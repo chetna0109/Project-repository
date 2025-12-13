@@ -21,7 +21,7 @@ jobs:
 
       - name: setup
         working-directory: frontend
-        uses: npm install
+        run: npm install
 
       - name: node test
         working-directory: frontend
