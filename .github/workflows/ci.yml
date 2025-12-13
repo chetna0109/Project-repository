@@ -55,7 +55,7 @@ jobs:
         run: actions/checkout@v4
 
       - name: Docker build
-        working-diectory: frontend
+        working-directory: frontend
         run: docker build .
 
 
