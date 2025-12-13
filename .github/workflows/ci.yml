@@ -18,6 +18,8 @@ jobs:
     
       - name: setup nodejs
         run: npm install
+
+      - name: setup
         run: npm ci
 
       - name: node lint
