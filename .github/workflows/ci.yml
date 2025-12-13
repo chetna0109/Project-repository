@@ -32,7 +32,11 @@ jobs:
   test:
     name: test
     runs-on: ubuntu-latest
+
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        
       - name: test1
         working-directory: frontend
         run: npm test
