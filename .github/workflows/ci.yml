@@ -56,6 +56,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: setup nodejs
+        working-directory: frontend
+        run: npm ci
+
+
       - name: Build React app
         working-directory: frontend
         env:
