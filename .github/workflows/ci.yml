@@ -57,6 +57,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build React app
+        working-directory: frontend
         env:
             REACT_APP_MOVIE_API_URL: http://localhost:5000
         run: npm run build
