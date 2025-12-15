@@ -56,9 +56,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Docker build
-        working-directory: frontend
-        run: docker build .
+      - name: Build React app
+        env:
+            REACT_APP_MOVIE_API_URL: http://localhost:5000
+        run: npm run build
 
 
   
