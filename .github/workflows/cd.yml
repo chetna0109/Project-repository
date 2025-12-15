@@ -48,6 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+
+      - name: checkout
+
+        uses: actions/checkout@v4
       - name: login
         working-directory: frontend
         run: aws ecr get-login-password --region us-east-1 docker login --username AWS \
