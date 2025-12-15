@@ -47,6 +47,10 @@ jobs:
     name: ecr_login
     runs-on: ubuntu-latest
     steps:
+
+      - name: checkout
+
+        uses: actions/checkout@v4
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -54,9 +58,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: checkout
-
-        uses: actions/checkout@v4
+     
       - name: login
         working-directory: frontend
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 153740163786.dkr.ecr.us-east-1.amazonaws.com/project
