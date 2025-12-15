@@ -33,8 +33,8 @@ jobs:
     steps:
 
       - name: Build React app
-          working-directory: frontend
-          run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
+        working-directory: frontend
+        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
       - name: run
         working-directory: frontend
         run: docker run --name mp-frontend -p 3000:3000 -d mp-frontend
