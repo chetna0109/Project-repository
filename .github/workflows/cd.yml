@@ -64,6 +64,10 @@ jobs:
         working-directory: frontend
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 153740163786.dkr.ecr.us-east-1.amazonaws.com
 
+      - name: tagging
+        working-directory: frontend
+        run: docker tag mp-frontend:$GIT_SHA 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
+
       - name: push
         working-directory: frontend
         run: docker push 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
