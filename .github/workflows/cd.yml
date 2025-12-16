@@ -38,7 +38,7 @@ jobs:
 
       - name: Build React app
         working-directory: frontend
-        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
+        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:$GIT_SHA .
       - name: run
         working-directory: frontend
         run: docker run --name mp-frontend -p 3000:3000 -d mp-frontend
@@ -62,8 +62,11 @@ jobs:
      
       - name: login
         working-directory: frontend
-        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin
+        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 153740163786.dkr.ecr.us-east-1.amazonaws.com
 
+      - name: push
+        working-directory: frontend
+        run: docker push 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
 
 
 
