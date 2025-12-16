@@ -38,7 +38,7 @@ jobs:
 
       - name: Build React app
         working-directory: frontend
-        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:$GIT_SHA .
+        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
       - name: run
         working-directory: frontend
         run: docker run --name mp-frontend -p 3000:3000 -d mp-frontend
@@ -66,7 +66,7 @@ jobs:
 
       - name: tagging
         working-directory: frontend
-        run: docker tag mp-frontend:$GIT_SHA 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
+        run: docker tag mp-frontend:$latest 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
 
       - name: push
         working-directory: frontend
