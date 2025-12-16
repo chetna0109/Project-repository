@@ -8,6 +8,9 @@ on:
       frontend/**
   workflow_dispatch:
 
+env:
+  GIT_SHA: ${{ github.sha }}
+
 jobs:
 
   test:
@@ -57,11 +60,11 @@ jobs:
 
       - name: tagging
         working-directory: frontend
-        run: docker tag mp-frontend:latest 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:${GIT_SHA}
+        run: docker tag mp-frontend:latest 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
 
       - name: push
         working-directory: frontend
-        run: docker push 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:${GIT_SHA}
+        run: docker push 153740163786.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:$GIT_SHA
 
 
 
